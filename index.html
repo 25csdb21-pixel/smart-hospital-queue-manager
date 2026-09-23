@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Hospital Queue Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🏥 Smart Hospital Queue Manager</h1>
+    <p>Manage patients and doctor queues easily</p>
+</header>
+
+<div class="container">
+
+    <!-- Patient Registration -->
+    <div class="card">
+        <h2>👤 Patient Registration</h2>
+
+        <input type="text" id="patientName" placeholder="Patient Name">
+
+        <input type="number" id="patientAge" placeholder="Age">
+
+        <select id="doctor">
+            <option value="">Select Doctor</option>
+            <option value="Dr. Kumar">Dr. Kumar - General</option>
+            <option value="Dr. Priya">Dr. Priya - Cardiology</option>
+            <option value="Dr. Arun">Dr. Arun - Orthopedic</option>
+        </select>
+
+        <select id="priority">
+            <option value="Normal">Normal</option>
+            <option value="Emergency">Emergency</option>
+        </select>
+
+        <button onclick="addPatient()">Generate Token</button>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats">
+
+        <div class="stat-card">
+            <h3>Total Patients</h3>
+            <p id="totalPatients">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Waiting</h3>
+            <p id="waitingPatients">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Completed</h3>
+            <p id="completedPatients">0</p>
+        </div>
+
+    </div>
+
+    <!-- Current Patient -->
+    <div class="card current">
+        <h2>🎫 Current Patient</h2>
+
+        <h1 id="currentToken">---</h1>
+        <p id="currentPatient">No patient called</p>
+
+        <button onclick="callNext()">▶ Call Next Patient</button>
+    </div>
+
+    <!-- Queue -->
+    <div class="card">
+        <h2>📋 Patient Queue</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Doctor</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="queueTable">
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
